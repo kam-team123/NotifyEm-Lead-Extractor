@@ -1,0 +1,6 @@
+{
+  "name": "Notifyem",
+  "description": "Real estate lead finder and heatmap searcher across US states with direct Salesforce sync and daily property updates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
