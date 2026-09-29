@@ -27,11 +27,6 @@ import {
   INITIAL_CAMPAIGNS 
 } from './data/mockData';
 
-import { 
-  syncLeadsToSalesforce, 
-  syncListingsToSalesforce, 
-  generateSalesforceId 
-} from './services/salesforceService';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'map' | 'daily' | 'pipeline' | 'campaigns' | 'salesforce' | 'collections'>('map');
@@ -56,80 +51,23 @@ export default function App() {
   };
 
   // Quick Salesforce Sync (from TopBar or Overview)
-  const handleQuickSalesforceSync = async () => {
-    setIsSyncing(true);
-    const { syncedLeads, syncLog } = await syncLeadsToSalesforce(leads, salesforceConfig);
-    setLeads(syncedLeads);
-    setSyncLogs(prev => [syncLog, ...prev]);
-    setSalesforceConfig(prev => ({
-      ...prev,
-      lastSyncTimestamp: new Date().toISOString(),
-      totalSyncedLeads: syncedLeads.filter(l => l.salesforceSyncStatus === 'Synced').length
-    }));
-    setIsSyncing(false);
-    showBanner(`Salesforce Sync Complete: ${syncLog.recordsSucceeded} leads synchronized with external ID validation.`);
+  const handleQuickSalesforceSync = () => {
+    showBanner('Salesforce sync is unavailable until a live OAuth/API integration is configured.');
   };
 
   // Sync Daily Listings to Salesforce
-  const handleSyncListingsToSalesforce = async () => {
-    setIsSyncing(true);
-    const { syncedListings, syncLog } = await syncListingsToSalesforce(properties);
-    setProperties(syncedListings);
-    setSyncLogs(prev => [syncLog, ...prev]);
-    setIsSyncing(false);
-    showBanner(`Pushed ${syncedListings.length} MLS listings to Salesforce Property_Listing__c custom object.`);
+  const handleSyncListingsToSalesforce = () => {
+    showBanner('Salesforce sync is unavailable until a live OAuth/API integration is configured.');
   };
 
   // Single Lead Push to Salesforce
-  const handleSyncSingleLead = async (lead: RealEstateLead) => {
-    setIsSyncing(true);
-    const sfId = lead.salesforceLeadId || generateSalesforceId('00Q');
-    const updatedLead: RealEstateLead = {
-      ...lead,
-      salesforceSyncStatus: 'Synced',
-      salesforceLeadId: sfId,
-      lastSyncedAt: new Date().toISOString()
-    };
-
-    setLeads(prev => prev.map(l => l.id === lead.id ? updatedLead : l));
-
-    const singleLog: SalesforceSyncLog = {
-      id: `sync_log_${Date.now()}`,
-      timestamp: new Date().toISOString(),
-      operation: 'Push Leads',
-      status: 'SUCCESS',
-      recordsProcessed: 1,
-      recordsSucceeded: 1,
-      recordsFailed: 0,
-      salesforceIds: [sfId],
-      message: `Pushed lead "${lead.firstName} ${lead.lastName}" to Salesforce Lead sObject (ID: ${sfId}).`,
-      durationMs: 420
-    };
-
-    setSyncLogs(prev => [singleLog, ...prev]);
-    setIsSyncing(false);
-    showBanner(`Lead ${lead.firstName} ${lead.lastName} synced to Salesforce (${sfId})`);
+  const handleSyncSingleLead = (_lead: RealEstateLead) => {
+    showBanner('Salesforce sync is unavailable until a live OAuth/API integration is configured.');
   };
 
   // Single Property Push to Salesforce
-  const handleSyncSingleProperty = (property: PropertyListing) => {
-    const assetId = property.salesforceAssetId || generateSalesforceId('02i');
-    setProperties(prev => prev.map(p => p.id === property.id ? { ...p, syncedToSalesforce: true, salesforceAssetId: assetId } : p));
-    
-    const log: SalesforceSyncLog = {
-      id: `sync_log_${Date.now()}`,
-      timestamp: new Date().toISOString(),
-      operation: 'Sync Daily Listings',
-      status: 'SUCCESS',
-      recordsProcessed: 1,
-      recordsSucceeded: 1,
-      recordsFailed: 0,
-      salesforceIds: [assetId],
-      message: `Synchronized MLS #${property.mlsId} "${property.title}" to Salesforce Property_Listing__c.`,
-      durationMs: 380
-    };
-    setSyncLogs(prev => [log, ...prev]);
-    showBanner(`Listing ${property.title} pushed to Salesforce (Asset: ${assetId})`);
+  const handleSyncSingleProperty = (_property: PropertyListing) => {
+    showBanner('Salesforce sync is unavailable until a live OAuth/API integration is configured.');
   };
 
   // Add Lead

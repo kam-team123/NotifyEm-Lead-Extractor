@@ -126,9 +126,7 @@ export const INITIAL_LEADS: RealEstateLead[] = [
     leadSource: 'Lead Finder Discovery',
     collectionId: 'col_austin_luxury',
     targetBudgetOrPrice: 2400000,
-    salesforceSyncStatus: 'Synced',
-    salesforceLeadId: '00Q5g00000aBc12EAA',
-    lastSyncedAt: '2026-09-29T08:15:00Z',
+    salesforceSyncStatus: 'Not Synced',
     notes: 'Buyer pre-approved for all-cash acquisition. Prefers private pool and hill country views. Ready to close within 14 days.',
     matchScore: 98,
     createdAt: '2026-09-14T09:00:00Z'
@@ -153,9 +151,7 @@ export const INITIAL_LEADS: RealEstateLead[] = [
     leadSource: 'Daily MLS Feed',
     collectionId: 'col_sunbelt_investors',
     targetBudgetOrPrice: 1850000,
-    salesforceSyncStatus: 'Synced',
-    salesforceLeadId: '00Q5g00000dEf89EAA',
-    lastSyncedAt: '2026-09-28T18:30:00Z',
+    salesforceSyncStatus: 'Not Synced',
     notes: 'Seeking waterfront condos or 4-plex in Edgewater/Brickell with short-term rental permits.',
     matchScore: 94,
     createdAt: '2026-09-18T14:30:00Z'
@@ -180,9 +176,7 @@ export const INITIAL_LEADS: RealEstateLead[] = [
     leadSource: 'Lead Finder Discovery',
     collectionId: 'col_pnw_multifamily',
     targetBudgetOrPrice: 1250000,
-    salesforceSyncStatus: 'Synced',
-    salesforceLeadId: '00Q5g00000fGh34EAA',
-    lastSyncedAt: '2026-09-29T07:45:00Z',
+    salesforceSyncStatus: 'Not Synced',
     notes: 'Co-brokering vintage Craftsman homes in Capitol Hill and Madison Park. Regularly refers relocation clients.',
     matchScore: 91,
     createdAt: '2026-09-20T11:00:00Z'
@@ -280,9 +274,7 @@ export const INITIAL_LEADS: RealEstateLead[] = [
     leadSource: 'Manual Intake',
     collectionId: 'col_sunbelt_investors',
     targetBudgetOrPrice: 1750000,
-    salesforceSyncStatus: 'Synced',
-    salesforceLeadId: '00Q5g00000kLm56EAA',
-    lastSyncedAt: '2026-09-29T07:10:00Z',
+    salesforceSyncStatus: 'Not Synced',
     notes: 'Handles boutique medical offices and retail strip centers along GA-400 corridor.',
     matchScore: 82,
     createdAt: '2026-09-22T13:20:00Z'
@@ -306,9 +298,7 @@ export const INITIAL_LEADS: RealEstateLead[] = [
     pipelineState: 'Dormant',
     leadSource: 'Lead Finder Discovery',
     targetBudgetOrPrice: 650000,
-    salesforceSyncStatus: 'Synced',
-    salesforceLeadId: '00Q5g00000pQr78EAA',
-    lastSyncedAt: '2026-09-15T12:00:00Z',
+    salesforceSyncStatus: 'Not Synced',
     notes: 'Paused search until spring 2027. Retain record in dormant state.',
     matchScore: 60,
     createdAt: '2026-08-10T10:00:00Z'
@@ -332,9 +322,7 @@ export const INITIAL_LEADS: RealEstateLead[] = [
     pipelineState: 'Do Not Contact',
     leadSource: 'Manual Intake',
     targetBudgetOrPrice: 780000,
-    salesforceSyncStatus: 'Synced',
-    salesforceLeadId: '00Q5g00000uVw90EAA',
-    lastSyncedAt: '2026-09-28T09:00:00Z',
+    salesforceSyncStatus: 'Not Synced',
     notes: 'Expressed strict unsubscribe preference via telephone on 09/25. Suppressed from all outbound AI campaigns per SOP.',
     matchScore: 0,
     createdAt: '2026-09-12T15:00:00Z'
@@ -367,8 +355,7 @@ export const INITIAL_PROPERTY_LISTINGS: PropertyListing[] = [
     longitude: -97.8392,
     listingAgentName: 'Camilla Sterling',
     listingAgentBrokerage: 'Compass Austin Westlake',
-    syncedToSalesforce: true,
-    salesforceAssetId: '02i5g000000Abc1EAA',
+    syncedToSalesforce: false,
     matchedLeadIds: ['lead_001'],
     description: 'Custom contemporary sanctuary built into the limestone hills of Westlake. Walls of glass overlook the greenbelt canyon with an infinity-edge travertine pool, chef kitchen with Wolf appliances, and dedicated wine cellar.'
   },
@@ -396,8 +383,7 @@ export const INITIAL_PROPERTY_LISTINGS: PropertyListing[] = [
     longitude: -122.3114,
     listingAgentName: 'Douglas Fairweather',
     listingAgentBrokerage: 'Windermere Real Estate Midtown',
-    syncedToSalesforce: true,
-    salesforceAssetId: '02i5g000000Def2EAA',
+    syncedToSalesforce: false,
     matchedLeadIds: ['lead_003'],
     description: 'Exquisitely preserved 1912 Craftsman masterpiece on a tree-lined street. Features box-beam ceilings, authentic fir millwork, modernized geothermal heat pump, seismic retrofitting, and a permitted garden ADU with separate entrance.'
   },
@@ -452,8 +438,7 @@ export const INITIAL_PROPERTY_LISTINGS: PropertyListing[] = [
     longitude: -105.0112,
     listingAgentName: 'Jessica Thorne',
     listingAgentBrokerage: 'Kentwood Real Estate City Properties',
-    syncedToSalesforce: true,
-    salesforceAssetId: '02i5g000000Ghi3EAA',
+    syncedToSalesforce: false,
     matchedLeadIds: ['lead_004'],
     description: 'Chic urban retreat in the heart of Lower Highlands. Expansive rooftop deck with direct Denver skyline views and gas fire table hookup. Two-car tandem garage and zero monthly HOA.'
   },
@@ -509,8 +494,7 @@ export const INITIAL_PROPERTY_LISTINGS: PropertyListing[] = [
     longitude: -84.3598,
     listingAgentName: 'Jonathan Hayes',
     listingAgentBrokerage: 'Peachtree Commercial Group',
-    syncedToSalesforce: true,
-    salesforceAssetId: '02i5g000000Jkl4EAA',
+    syncedToSalesforce: false,
     matchedLeadIds: ['lead_007'],
     description: 'Triple-net leased commercial parcel in prestigious Buckhead district. Anchored by medical wellness studio and national coffee tenant. 6.5 years weighted average lease term remaining.'
   },
@@ -545,57 +529,20 @@ export const INITIAL_PROPERTY_LISTINGS: PropertyListing[] = [
 ];
 
 export const INITIAL_SALESFORCE_CONFIG: SalesforceConfig = {
-  isConnected: true,
-  instanceUrl: 'https://notifyem-realtor-dev.my.salesforce.com',
-  orgId: '00D5g000006KlmnEAA',
-  clientId: '3MVG9lKc_I4pms5WB8r_Notifyem_Connected_App_v1',
+  isConnected: false,
+  instanceUrl: '',
+  orgId: '',
+  clientId: '',
   environment: 'Production',
   apiVersion: 'v60.0',
   syncMode: 'Realtime Webhook',
-  lastSyncTimestamp: '2026-09-29T08:15:00Z',
-  totalSyncedLeads: 42,
-  autoSyncDailyListings: true,
+  lastSyncTimestamp: null,
+  totalSyncedLeads: 0,
+  autoSyncDailyListings: false,
   enforceSuppression: true
 };
 
-export const INITIAL_SYNC_LOGS: SalesforceSyncLog[] = [
-  {
-    id: 'sync_log_001',
-    timestamp: '2026-09-29T08:15:00Z',
-    operation: 'Push Leads',
-    status: 'SUCCESS',
-    recordsProcessed: 6,
-    recordsSucceeded: 6,
-    recordsFailed: 0,
-    salesforceIds: ['00Q5g00000aBc12EAA', '00Q5g00000dEf89EAA', '00Q5g00000fGh34EAA'],
-    message: 'Upsert completed successfully via Salesforce Bulk API v2. Idempotency verified against external ID notifyem_id__c.',
-    durationMs: 820
-  },
-  {
-    id: 'sync_log_002',
-    timestamp: '2026-09-29T07:45:00Z',
-    operation: 'Sync Daily Listings',
-    status: 'SUCCESS',
-    recordsProcessed: 4,
-    recordsSucceeded: 4,
-    recordsFailed: 0,
-    salesforceIds: ['02i5g000000Abc1EAA', '02i5g000000Def2EAA', '02i5g000000Ghi3EAA'],
-    message: 'Created 4 new Property_Listing__c records with geo-coordinates and active MLS identifiers.',
-    durationMs: 640
-  },
-  {
-    id: 'sync_log_003',
-    timestamp: '2026-09-28T22:00:00Z',
-    operation: 'Nightly Batch',
-    status: 'WARNING',
-    recordsProcessed: 12,
-    recordsSucceeded: 11,
-    recordsFailed: 1,
-    salesforceIds: ['00Q5g00000pQr78EAA'],
-    message: 'Record lead_009 skipped: Contact opted out (Do Not Contact suppression enforced per compliance rule).',
-    durationMs: 1150
-  }
-];
+export const INITIAL_SYNC_LOGS: SalesforceSyncLog[] = [];
 
 export const INITIAL_CAMPAIGNS: CampaignDraft[] = [
   {

@@ -112,13 +112,13 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
         <div>
           <div className="flex items-center gap-2.5">
             <h1 className="text-xl font-bold tracking-tight text-white">Salesforce CRM Integration</h1>
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-sky-950 border border-sky-800 text-sky-400 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              <span>Direct REST API Active</span>
+            <span className="text-xs font-mono px-2 py-0.5 rounded bg-neutral-900 border border-neutral-700 text-neutral-400 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-500" />
+              <span>Salesforce Not Connected</span>
             </span>
           </div>
           <p className="text-xs text-neutral-400 mt-1">
-            Bidirectional synchronization between Notifyem Real Estate Lead Finder and your Salesforce CRM environment.
+            Salesforce is not connected. Configure a real OAuth/API integration before syncing records.
           </p>
         </div>
 
@@ -208,9 +208,9 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
             <div className="p-4 bg-neutral-900 border border-neutral-800 rounded-lg">
               <div className="text-xs text-neutral-400 font-medium">Last Sync Timestamp</div>
               <div className="text-sm font-mono text-neutral-200 mt-2 truncate">
-                {config.lastSyncTimestamp ? new Date(config.lastSyncTimestamp).toLocaleTimeString() : 'Pending'}
+                {config.lastSyncTimestamp ? new Date(config.lastSyncTimestamp).toLocaleTimeString() : 'Never'}
               </div>
-              <div className="text-[11px] text-cyan-400 mt-1">Webhook listener online</div>
+              <div className="text-[11px] text-neutral-500 mt-1">No connection established</div>
             </div>
           </div>
 
@@ -225,7 +225,7 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
                 <span className="text-xs font-mono text-cyan-300">{pendingLeadCount} Unsynced</span>
               </div>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Upserts newly researched real estate leads, contact emails, phone numbers, target budgets, and pipeline stages into Salesforce Lead sObjects with automatic duplicate resolution.
+                Lead sync is unavailable until a live Salesforce OAuth/API integration is configured.
               </p>
               <button
                 onClick={onTriggerLeadsSync}
@@ -246,7 +246,7 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
                 <span className="text-xs font-mono text-neutral-400">{properties.length - syncedPropertyCount} Unsynced</span>
               </div>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Synchronizes newly dropped daily MLS listings across all US states to your custom Salesforce <code>Property_Listing__c</code> object for automated drip marketing and agent matching.
+                Listing sync is unavailable until a live Salesforce OAuth/API integration and target object are configured.
               </p>
               <button
                 onClick={onTriggerListingsSync}
@@ -261,7 +261,7 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
 
           {/* Connected App Details Box */}
           <div className="p-4 bg-neutral-900/60 border border-neutral-800 rounded-lg space-y-2 text-xs">
-            <div className="font-semibold text-neutral-200">Active Salesforce Connection:</div>
+            <div className="font-semibold text-neutral-200">Salesforce Connection Settings:</div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 font-mono text-neutral-400 text-[11px]">
               <div>Instance: <span className="text-sky-300">{config.instanceUrl}</span></div>
               <div>Org ID: <span className="text-neutral-300">{config.orgId}</span></div>
@@ -277,7 +277,7 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
           <div>
             <h3 className="text-sm font-semibold text-white mb-1">Standard Lead Field Mappings</h3>
             <p className="text-xs text-neutral-400 mb-3">
-              Notifyem fields automatically map to standard and custom fields on the Salesforce <code>Lead</code> object.
+              Proposed field mappings. Confirm custom fields and picklist values in your Salesforce org before use.
             </p>
             <div className="bg-neutral-900 border border-neutral-800 rounded-lg overflow-x-auto">
               <table className="w-full text-left text-xs">
@@ -287,7 +287,6 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
                     <th className="p-3">Salesforce Field API Name</th>
                     <th className="p-3">Salesforce Data Type</th>
                     <th className="p-3">Required</th>
-                    <th className="p-3">Sample Payload Value</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-800/80">
@@ -297,7 +296,6 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
                       <td className="p-3 font-mono text-sky-400">{m.salesforceField}</td>
                       <td className="p-3 text-neutral-400">{m.salesforceType}</td>
                       <td className="p-3">{m.required ? <span className="text-cyan-400 font-bold">Yes</span> : <span className="text-neutral-500">No</span>}</td>
-                      <td className="p-3 text-neutral-300 font-mono text-[11px]">{m.sampleValue}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -318,7 +316,6 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
                     <th className="p-3">Salesforce Field API Name</th>
                     <th className="p-3">Salesforce Data Type</th>
                     <th className="p-3">Required</th>
-                    <th className="p-3">Sample Payload Value</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-800/80">
@@ -328,7 +325,6 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
                       <td className="p-3 font-mono text-cyan-300">{m.salesforceField}</td>
                       <td className="p-3 text-neutral-400">{m.salesforceType}</td>
                       <td className="p-3">{m.required ? <span className="text-cyan-400 font-bold">Yes</span> : <span className="text-neutral-500">No</span>}</td>
-                      <td className="p-3 text-neutral-300 font-mono text-[11px]">{m.sampleValue}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -344,7 +340,7 @@ export const SalesforceCenter: React.FC<SalesforceCenterProps> = ({
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-sm font-semibold text-white">Salesforce Sync Audit Trail</h3>
-              <p className="text-xs text-neutral-400">Full transactional logs of all REST API upserts and daily sync executions.</p>
+              <p className="text-xs text-neutral-400">Sync events recorded by this app appear here.</p>
             </div>
             <button
               onClick={handleExportCsv}

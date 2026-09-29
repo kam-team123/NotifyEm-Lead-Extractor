@@ -40,7 +40,7 @@ export interface RealEstateLead {
   collectionId?: string;
   targetBudgetOrPrice?: number;
   salesforceSyncStatus: SalesforceSyncStatus;
-  salesforceLeadId?: string; // e.g. 00Q5g00000aBc12EAA
+  salesforceLeadId?: string;
   lastSyncedAt?: string;
   notes: string;
   matchScore?: number; // 0-100 match with today's listings
